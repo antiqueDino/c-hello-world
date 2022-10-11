@@ -20,11 +20,4 @@
             }
         }
     }
-    post {
-        success {
-            triggers {
-                upstream 'job 2,'
-            }
-        }
-    }
  }

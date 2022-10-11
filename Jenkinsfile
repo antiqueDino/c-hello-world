@@ -18,7 +18,10 @@
                 sh '(ls HelloWorld >> /dev/null 2>&1  && echo yes && exit 0) || echo no || exit 1'
                 archiveArtifacts artifacts: '*', followSymlinks: false
             }
-
+        }
+    }
+    post {
+        success {
             triggers {
                 upstream 'job 2,'
             }

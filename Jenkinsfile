@@ -14,9 +14,13 @@
         stage('build-hello-world') {
             steps {
                 sh 'make clean'
-                make main
+                sh 'make main'
                 sh '(ls HelloWorld >> /dev/null 2>&1  && echo yes && exit 0) || echo no || exit 1'
                 archiveArtifacts artifacts: '*', followSymlinks: false
+            }
+
+            triggers {
+                upstream 'job 2,'
             }
         }
     }
